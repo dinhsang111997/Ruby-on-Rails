@@ -1,0 +1,9 @@
+%h1 Editing course
+.alert.alert-primary{:role => "alert"}
+  This is a primary alert—check it out!
+
+= render 'form'
+
+= link_to 'Show', @course
+\|
+= link_to 'Back', courses_path

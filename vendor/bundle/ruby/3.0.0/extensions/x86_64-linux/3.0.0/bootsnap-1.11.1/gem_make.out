@@ -1,0 +1,15 @@
+current directory: /home/sangcoder/CODE/Ruby/ruby_study/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+/usr/bin/ruby3.0 -I /usr/local/lib/site_ruby/3.0.0 -r ./siteconf20220412-20605-vymcim.rb extconf.rb
+creating Makefile
+
+current directory: /home/sangcoder/CODE/Ruby/ruby_study/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/sangcoder/CODE/Ruby/ruby_study/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/sangcoder/CODE/Ruby/ruby_study/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220412-20605-750vq5/bootsnap

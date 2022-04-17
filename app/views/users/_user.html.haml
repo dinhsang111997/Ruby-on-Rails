@@ -1,0 +1,16 @@
+.alert.alert-primary{:role => "alert"}
+  A simple primary alert—check it out!
+.card
+  .card-header
+    .fa.fa-user
+    = user.email
+  .card-footer
+    Signed up
+    = time_ago_in_words(user.created_at)
+    ago
+  .card-footer
+    Confirmed email?
+    - if user.confirmed_at.present?
+      .badge.bg-success Yes
+    - else
+      .badge.bg-danger No
