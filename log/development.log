@@ -7708,3 +7708,260 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 1748ms (Views: 1668.2ms | ActiveRecord: 69.2ms | Allocations: 438968)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('5433808328789533245', 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddSlugToUsers (20220418031500)
+  [1m[35m (117.6ms)[0m  [1m[35mALTER TABLE `users` ADD `slug` varchar(255)[0m
+  [1m[35m (102.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_slug` ON `users` (`slug`)[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220418031500')[0m
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('5433808328789533245')[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-04-18 10:16:39 +0700
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:4)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (13.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (4.9ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mRole Load (4.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 1279.2ms | Allocations: 362576)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 12.2ms | Allocations: 1540)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 11.4ms | Allocations: 1435)
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.7ms | Allocations: 846)
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.8ms | Allocations: 843)
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.0ms | Allocations: 843)
+  [1m[36mCourse Load (5.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 14.4ms | Allocations: 1705)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 12.0ms | Allocations: 1573)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 13.5ms | Allocations: 1569)
+  Rendered home/index.html.haml within layouts/application (Duration: 1507.0ms | Allocations: 394012)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 53.0ms | Allocations: 18474)
+  Rendered layouts/_messages.html.haml (Duration: 15.7ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 14.8ms | Allocations: 4175)
+  Rendered layout layouts/application.html.haml (Duration: 1680.2ms | Allocations: 431609)
+Completed 200 OK in 1881ms (Views: 1622.6ms | ActiveRecord: 106.7ms | Allocations: 451507)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 10:16:45 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:9
+  [1m[36mRole Load (5.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (5.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 135.8ms | Allocations: 8157)
+  [1m[36mRole Load (5.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 21.0ms | Allocations: 1964)
+  Rendered users/index.html.haml within layouts/application (Duration: 207.2ms | Allocations: 18583)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.5ms | Allocations: 868)
+  Rendered layouts/_messages.html.haml (Duration: 0.5ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 1.0ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 243.3ms | Allocations: 23086)
+Completed 200 OK in 276ms (Views: 224.1ms | ActiveRecord: 30.4ms | Allocations: 26816)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-04-18 10:16:48 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = '1' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  [1m[36mRole Load (5.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (6.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 26.9ms | Allocations: 2713)
+  Rendered users/show.html.haml within layouts/application (Duration: 33.8ms | Allocations: 4287)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 4.6ms | Allocations: 899)
+  Rendered layouts/_messages.html.haml (Duration: 0.5ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.9ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 60.0ms | Allocations: 8800)
+Completed 200 OK in 98ms (Views: 51.6ms | ActiveRecord: 22.4ms | Allocations: 12394)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-04-18 10:16:52 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = '1' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  [1m[36mRole Load (6.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (5.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 29.6ms | Allocations: 2712)
+  Rendered users/show.html.haml within layouts/application (Duration: 31.1ms | Allocations: 2857)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 8.0ms | Allocations: 899)
+  Rendered layouts/_messages.html.haml (Duration: 1.3ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 1.1ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 75.1ms | Allocations: 7456)
+Completed 200 OK in 112ms (Views: 65.3ms | ActiveRecord: 23.0ms | Allocations: 10844)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 10:16:55 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:9
+  [1m[36mRole Load (5.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (5.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 29.2ms | Allocations: 2627)
+  [1m[36mRole Load (6.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 19.1ms | Allocations: 1865)
+  Rendered users/index.html.haml within layouts/application (Duration: 77.8ms | Allocations: 7129)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.9ms | Allocations: 859)
+  Rendered layouts/_messages.html.haml (Duration: 0.6ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.8ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 112.5ms | Allocations: 11697)
+Completed 200 OK in 128ms (Views: 85.7ms | ActiveRecord: 31.8ms | Allocations: 13566)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2022-04-18 10:16:56 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = '2' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  [1m[36mRole Load (4.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (4.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 25.1ms | Allocations: 2716)
+  Rendered users/show.html.haml within layouts/application (Duration: 26.6ms | Allocations: 2861)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.7ms | Allocations: 899)
+  Rendered layouts/_messages.html.haml (Duration: 0.4ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.8ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 58.8ms | Allocations: 7462)
+Completed 200 OK in 92ms (Views: 51.4ms | ActiveRecord: 19.7ms | Allocations: 10861)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2022-04-18 10:16:59 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = '2' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  Rendering layout layouts/application.html.haml
+  Rendering users/show.html.haml within layouts/application
+  [1m[36mRole Load (6.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (5.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 30.5ms | Allocations: 2716)
+  Rendered users/show.html.haml within layouts/application (Duration: 32.1ms | Allocations: 2861)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.3ms | Allocations: 899)
+  Rendered layouts/_messages.html.haml (Duration: 0.8ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.8ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 63.6ms | Allocations: 7462)
+Completed 200 OK in 97ms (Views: 53.5ms | ActiveRecord: 24.1ms | Allocations: 10862)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 10:17:01 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:9
+  [1m[36mRole Load (7.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mRole Load (6.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 33.0ms | Allocations: 2627)
+  [1m[36mRole Load (4.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:18
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 17.9ms | Allocations: 1865)
+  Rendered users/index.html.haml within layouts/application (Duration: 78.1ms | Allocations: 7129)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.5ms | Allocations: 859)
+  Rendered layouts/_messages.html.haml (Duration: 0.6ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.9ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 108.6ms | Allocations: 11696)
+Completed 200 OK in 123ms (Views: 81.1ms | ActiveRecord: 32.6ms | Allocations: 13565)
+
+
