@@ -7965,3 +7965,178 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 123ms (Views: 81.1ms | ActiveRecord: 32.6ms | Allocations: 13565)
 
 
+Started GET "/" for 127.0.0.1 at 2022-04-18 10:26:04 +0700
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (4.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  Rendered courses/_course.html.haml (Duration: 33.5ms | Allocations: 3249)
+  Rendered home/index.html.haml within layouts/application (Duration: 126.2ms | Allocations: 23084)
+  Rendered layout layouts/application.html.haml (Duration: 126.9ms | Allocations: 23167)
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 49.0ms | Allocations: 43020)
+
+
+  
+ActionView::Template::Error (Inconsistent indentation: 1 space used for indentation, but the rest of the document was indented using 4 spaces.):
+    26:                 .text-right
+    27:                     .fa.fa-chalkboard-teacher
+    28:                     = course.user.username
+    29:  - if current_user
+    30:     - if policy(course).edit?
+    31:         .card-footer
+    32:         /- if policy(course).edit?
+  
+app/views/courses/_course.html.haml:29
+app/views/home/index.html.haml:48
+app/views/home/index.html.haml:47
+Started GET "/" for 127.0.0.1 at 2022-04-18 10:27:04 +0700
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (13.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (4.9ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  Rendered courses/_course.html.haml (Duration: 9.4ms | Allocations: 3344)
+  Rendered home/index.html.haml within layouts/application (Duration: 130.1ms | Allocations: 23179)
+  Rendered layout layouts/application.html.haml (Duration: 130.8ms | Allocations: 23262)
+Completed 500 Internal Server Error in 303ms (ActiveRecord: 67.5ms | Allocations: 43118)
+
+
+  
+ActionView::Template::Error (Illegal nesting: nesting within a tag that already has content is illegal.):
+    30:         - if policy(course).edit?
+    31:             .card-footer
+    32:             /- if policy(course).edit?
+    33:                 = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
+    34:                 /- if policy(course).destroy?
+    35:                 = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+  
+app/views/courses/_course.html.haml:33
+app/views/home/index.html.haml:48
+app/views/home/index.html.haml:47
+Started GET "/" for 127.0.0.1 at 2022-04-18 10:27:46 +0700
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (3.9ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mRole Load (5.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 932.7ms | Allocations: 362392)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.7ms | Allocations: 1542)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 11.4ms | Allocations: 1437)
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 14.8ms | Allocations: 849)
+  [1m[36mCACHE Role Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.3ms | Allocations: 845)
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 4.4ms | Allocations: 845)
+  [1m[36mCourse Load (3.7ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 12.1ms | Allocations: 1707)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.8ms | Allocations: 1575)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:28
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.1ms | Allocations: 1571)
+  Rendered home/index.html.haml within layouts/application (Duration: 1126.3ms | Allocations: 393854)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 66.8ms | Allocations: 18743)
+  Rendered layouts/_messages.html.haml (Duration: 15.1ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 14.4ms | Allocations: 4175)
+  Rendered layout layouts/application.html.haml (Duration: 1270.1ms | Allocations: 431719)
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (4.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 03:27:47.845569' WHERE `users`.`id` = 2[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 1468ms (Views: 1205.6ms | ActiveRecord: 122.8ms | Allocations: 454297)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 10:28:46 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:9
+  [1m[36mRole Load (3.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/_user.html.haml:22
+  [1m[36mRole Load (6.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 54.4ms | Allocations: 8740)
+  [1m[36mRole Load (4.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2[0m
+  ↳ app/views/users/_user.html.haml:22
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 2 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/_user.html.haml (Duration: 19.8ms | Allocations: 1990)
+  Rendered users/index.html.haml within layouts/application (Duration: 126.8ms | Allocations: 19151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 5.0ms | Allocations: 868)
+  Rendered layouts/_messages.html.haml (Duration: 0.4ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.8ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 157.5ms | Allocations: 23654)
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (4.9ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 03:28:47.043438' WHERE `users`.`id` = 2[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 250ms (Views: 140.6ms | ActiveRecord: 76.9ms | Allocations: 29623)
+
+
