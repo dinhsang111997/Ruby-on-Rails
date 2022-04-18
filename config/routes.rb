@@ -1,4 +1,5 @@
 # Rails.application.routes.draw do
+
 #   devise_for :users
 #   resources :courses
 #   root 'home#index'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   #  do
   # get '/users/sign_out' => 'devise/sessions#destroy'
   # end
+  resources :lessons
   devise_for :users
   resources :courses
     resources :users, only: [:index, :edit, :show, :update]

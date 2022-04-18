@@ -1,5 +1,4 @@
-.alert.alert-primary{:role => "alert"}
-  A simple primary alert—check it out!
+
 .card
   .card-header
     .fa.fa-user
@@ -20,7 +19,7 @@
       .badge.bg-danger No
   .card-footer
     - user.roles.each do |role|
-      .badge.badge-info
+      .badge.bg-info
         = role.name
     - if policy(user).edit?
       = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
