@@ -1,9 +1,8 @@
-%h1 Editing course
-.alert.alert-primary{:role => "alert"}
-  This is a primary alert—check it out!
+    %h1 Editing course
+  .card-body
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @course
-\|
-= link_to 'Back', courses_path
+  .card-footer
+    = link_to 'Show', @course
+    \|
+    = link_to 'Back', courses_path
