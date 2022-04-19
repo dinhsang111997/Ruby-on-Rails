@@ -15072,3 +15072,1261 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 1146ms (Views: 81.6ms | ActiveRecord: 1045.6ms | Allocations: 20527)
 
 
+Started GET "/" for 127.0.0.1 at 2022-04-18 16:30:33 +0700
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (1.1ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 489.4ms | Allocations: 370410)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.2ms | Allocations: 1745)
+  [1m[36mCourse Load (1.6ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.6ms | Allocations: 2325)
+  Rendered home/index.html.haml within layouts/application (Duration: 549.4ms | Allocations: 395142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 16.5ms | Allocations: 18737)
+  Rendered layouts/_messages.html.haml (Duration: 5.8ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 4.3ms | Allocations: 4175)
+  Rendered layout layouts/application.html.haml (Duration: 600.9ms | Allocations: 433362)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 09:30:34.566444' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 691ms (Views: 571.9ms | ActiveRecord: 61.5ms | Allocations: 456494)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-18 16:30:39 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (22.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 15.6ms | Allocations: 3667)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 3.7ms | Allocations: 1627)
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.0ms | Allocations: 2288)
+  Rendered home/index.html.haml within layouts/application (Duration: 67.4ms | Allocations: 11809)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.6ms | Allocations: 857)
+  Rendered layouts/_messages.html.haml (Duration: 0.2ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 101.9ms | Allocations: 16433)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 09:30:39.207847' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 126ms (Views: 68.7ms | ActiveRecord: 48.2ms | Allocations: 20732)
+
+
+Started GET "/courses" for 127.0.0.1 at 2022-04-18 16:30:45 +0700
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (1.1ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.3ms | Allocations: 2814)
+  Rendered courses/index.html.haml within layouts/application (Duration: 46.7ms | Allocations: 15199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.6ms | Allocations: 880)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 55.7ms | Allocations: 19757)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 09:30:45.926190' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 89ms (Views: 44.3ms | ActiveRecord: 27.6ms | Allocations: 25732)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-18 17:49:47 +0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 429.6ms | Allocations: 370653)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 3.7ms | Allocations: 1745)
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.1ms | Allocations: 2325)
+  Rendered home/index.html.haml within layouts/application (Duration: 481.1ms | Allocations: 395394)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 18.0ms | Allocations: 18737)
+  Rendered layouts/_messages.html.haml (Duration: 4.2ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 5.5ms | Allocations: 4175)
+  Rendered layout layouts/application.html.haml (Duration: 534.3ms | Allocations: 433613)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:49:48.310033' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 612ms (Views: 504.3ms | ActiveRecord: 58.9ms | Allocations: 456746)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 17:49:50 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:28
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/index.html.haml:35
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/index.html.haml within layouts/application (Duration: 72.3ms | Allocations: 12128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.2ms | Allocations: 891)
+  Rendered layouts/_messages.html.haml (Duration: 0.2ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.3ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 84.6ms | Allocations: 16735)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:49:50.798065' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 119ms (Views: 76.5ms | ActiveRecord: 26.6ms | Allocations: 22730)
+
+
+Started GET "/users/dinhsang111997-gmail-com/edit" for 127.0.0.1 at 2022-04-18 17:49:56 +0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"dinhsang111997-gmail-com"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = 'dinhsang111997-gmail-com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendering layout layouts/application.html.haml
+  Rendering users/edit.html.haml within layouts/application
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles`[0m
+  ↳ app/views/users/edit.html.haml:7
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT `roles`.`id` FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/edit.html.haml:7
+  Rendered users/edit.html.haml within layouts/application (Duration: 31.8ms | Allocations: 13961)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.2ms | Allocations: 884)
+  Rendered layouts/_messages.html.haml (Duration: 0.4ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 43.6ms | Allocations: 18531)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:49:56.374743' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 79ms (Views: 41.0ms | ActiveRecord: 21.9ms | Allocations: 24750)
+
+
+Started PATCH "/users/dinhsang111997-gmail-com" for 127.0.0.1 at 2022-04-18 17:49:58 +0700
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"role_ids"=>["", "1", "2"]}, "commit"=>"Update User", "id"=>"dinhsang111997-gmail-com"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = 'dinhsang111997-gmail-com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:13:in `update?'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mRole Load (2.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` IN (1, 2)[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+Redirected to http://127.0.0.1:3000/users
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:49:58.191657' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 302 Found in 55ms (ActiveRecord: 27.7ms | Allocations: 10250)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 17:49:58 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:28
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/index.html.haml:35
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/index.html.haml within layouts/application (Duration: 23.1ms | Allocations: 4954)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.7ms | Allocations: 862)
+  Rendered layouts/_messages.html.haml (Duration: 0.2ms | Allocations: 98)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 34.9ms | Allocations: 9632)
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:49:58.265147' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 67ms (Views: 27.9ms | ActiveRecord: 23.3ms | Allocations: 13654)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 17:52:39 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:28
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/index.html.haml:35
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/index.html.haml within layouts/application (Duration: 14.9ms | Allocations: 10062)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 13.2ms | Allocations: 18579)
+  Rendered layouts/_messages.html.haml (Duration: 3.8ms | Allocations: 3992)
+  Rendered layouts/_footer.html.haml (Duration: 3.5ms | Allocations: 4162)
+  Rendered layout layouts/application.html.haml (Duration: 46.4ms | Allocations: 44154)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:52:39.691586' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 72ms (Views: 44.1ms | ActiveRecord: 21.6ms | Allocations: 49254)
+
+
+Started GET "/users/dinhsang111997-gmail-com/edit" for 127.0.0.1 at 2022-04-18 17:52:47 +0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"dinhsang111997-gmail-com"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = 'dinhsang111997-gmail-com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendering layout layouts/application.html.haml
+  Rendering users/edit.html.haml within layouts/application
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles`[0m
+  ↳ app/views/users/edit.html.haml:7
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `roles`.`id` FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/edit.html.haml:7
+  Rendered users/edit.html.haml within layouts/application (Duration: 11.5ms | Allocations: 6043)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.5ms | Allocations: 876)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 20.0ms | Allocations: 10579)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:52:47.674543' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 52ms (Views: 18.1ms | ActiveRecord: 21.0ms | Allocations: 16616)
+
+
+Started PATCH "/users/dinhsang111997-gmail-com" for 127.0.0.1 at 2022-04-18 17:52:51 +0700
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"role_ids"=>["", "1", "2", "3"]}, "commit"=>"Update User", "id"=>"dinhsang111997-gmail-com"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`slug` = 'dinhsang111997-gmail-com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:26:in `set_user'
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:13:in `update?'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` IN (1, 2, 3)[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mUser::HABTM_Roles Create (4.2ms)[0m  [1m[32mINSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (1, 3)[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `update'
+Redirected to http://127.0.0.1:3000/users
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:52:51.935538' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 302 Found in 76ms (ActiveRecord: 45.8ms | Allocations: 12418)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 17:52:51 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering users/index.html.haml within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT `users`.`id`) FROM `users`[0m
+  ↳ app/views/users/index.html.haml:5
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT DISTINCT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.haml:28
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  ↳ app/views/users/index.html.haml:35
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/user_policy.rb:9:in `edit?'
+  Rendered users/index.html.haml within layouts/application (Duration: 15.3ms | Allocations: 4965)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.3ms | Allocations: 862)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 96)
+  Rendered layouts/_footer.html.haml (Duration: 0.3ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 22.4ms | Allocations: 9641)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-18 10:52:51.993890' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:19:in `user_activity'
+Completed 200 OK in 45ms (Views: 18.0ms | ActiveRecord: 18.0ms | Allocations: 13662)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-19 09:49:27 +0700
+  [1m[35m (13.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (1.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  Rendered courses/_course.html.haml (Duration: 531.8ms | Allocations: 366195)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  Rendered courses/_course.html.haml (Duration: 2.9ms | Allocations: 1045)
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  Rendered courses/_course.html.haml (Duration: 5.7ms | Allocations: 1611)
+  Rendered home/index.html.haml within layouts/application (Duration: 599.0ms | Allocations: 390199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 19.9ms | Allocations: 17979)
+  Rendered layouts/_messages.html.haml (Duration: 5.0ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 4.0ms | Allocations: 4178)
+  Rendered layout layouts/application.html.haml (Duration: 653.7ms | Allocations: 427705)
+Completed 200 OK in 705ms (Views: 620.6ms | ActiveRecord: 43.4ms | Allocations: 439273)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-04-19 09:49:33 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering /var/lib/gems/3.0.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/3.0.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 776)
+  Rendered /var/lib/gems/3.0.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 4242)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 0.4ms | Allocations: 185)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 114)
+  Rendered layout layouts/application.html.haml (Duration: 19.1ms | Allocations: 8239)
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 10923)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-04-19 09:49:35 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dinhsang111997@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'dinhsang111997@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:49:35.598521' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 302 Found in 411ms (ActiveRecord: 16.9ms | Allocations: 8517)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-19 09:49:35 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (1.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mRole Load (5.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 45.2ms | Allocations: 12814)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 4.3ms | Allocations: 1742)
+  [1m[36mCourse Load (1.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.2ms | Allocations: 2324)
+  Rendered home/index.html.haml within layouts/application (Duration: 72.6ms | Allocations: 21303)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.5ms | Allocations: 885)
+  Rendered layouts/_messages.html.haml (Duration: 0.2ms | Allocations: 97)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 81.4ms | Allocations: 25901)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:49:35.714947' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 104ms (Views: 55.2ms | ActiveRecord: 40.3ms | Allocations: 30085)
+
+
+Started GET "/courses" for 127.0.0.1 at 2022-04-19 09:50:07 +0700
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (20.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (1.6ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.4ms | Allocations: 2810)
+  Rendered courses/index.html.haml within layouts/application (Duration: 36.2ms | Allocations: 15155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.1ms | Allocations: 879)
+  Rendered layouts/_messages.html.haml (Duration: 0.2ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.haml (Duration: 46.6ms | Allocations: 19706)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:50:07.695344' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 94ms (Views: 41.1ms | ActiveRecord: 41.4ms | Allocations: 25556)
+
+
+Started GET "/courses" for 127.0.0.1 at 2022-04-19 09:50:17 +0700
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (2.0ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (2.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 11.7ms | Allocations: 2753)
+  Rendered courses/index.html.haml within layouts/application (Duration: 34.9ms | Allocations: 8778)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.7ms | Allocations: 853)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 44.4ms | Allocations: 13389)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:50:17.445756' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (34.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 106ms (Views: 34.2ms | ActiveRecord: 54.9ms | Allocations: 18154)
+
+
+Started GET "/courses" for 127.0.0.1 at 2022-04-19 09:50:25 +0700
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (2.9ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.8ms | Allocations: 2754)
+  Rendered courses/index.html.haml within layouts/application (Duration: 31.7ms | Allocations: 8779)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.6ms | Allocations: 853)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 41.2ms | Allocations: 13392)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:50:25.154232' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (35.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 100ms (Views: 32.4ms | ActiveRecord: 53.1ms | Allocations: 18164)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2022-04-19 09:50:26 +0700
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'teacher') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:17:in `new?'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/new.html.haml within layouts/application
+  Rendered courses/_form.html.haml (Duration: 46.5ms | Allocations: 24301)
+  Rendered courses/new.html.haml within layouts/application (Duration: 50.3ms | Allocations: 27163)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 6.6ms | Allocations: 877)
+  Rendered layouts/_messages.html.haml (Duration: 0.7ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.7ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 66.9ms | Allocations: 31695)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:50:27.026241' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 101ms (Views: 67.9ms | ActiveRecord: 18.5ms | Allocations: 37082)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'medicine-245' LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (1.0ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Medicine 245', 'Faker hello', '2022-04-19 02:50:46.158706', '2022-04-19 02:50:46.158706', 1, 'medicine-245', 'Yes, it\'s tough, but not as tough as doing comedy.', 'Halide (programming language)', 8240)[0m
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'applied-science-psychology-254' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Applied Science (Psychology) 254', 'Faker hello', '2022-04-19 02:50:46.179975', '2022-04-19 02:50:46.179975', 1, 'applied-science-psychology-254', 'I forgot something.', 'SiMPLE', 16319)[0m
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'nursing-390' LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Nursing 390', 'Faker hello', '2022-04-19 02:50:46.201519', '2022-04-19 02:50:46.201519', 1, 'nursing-390', 'Tape Seinfeld for me.', 'Hugo', 18164)[0m
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'arts-415' LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Arts 415', 'Faker hello', '2022-04-19 02:50:46.219533', '2022-04-19 02:50:46.219533', 1, 'arts-415', 'That\'s good. Go on, read some more.', 'Lisp – ISO/IEC 13816', 17020)[0m
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'criminology-155' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Criminology 155', 'Faker hello', '2022-04-19 02:50:46.237565', '2022-04-19 02:50:46.237565', 1, 'criminology-155', 'No comment.', 'CFEngine', 7531)[0m
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'teaching-360' LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Teaching 360', 'Faker hello', '2022-04-19 02:50:46.346643', '2022-04-19 02:50:46.346643', 1, 'teaching-360', 'Is it not meningitis?', 'HAL/S', 15353)[0m
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'nursing-416' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Nursing 416', 'Faker hello', '2022-04-19 02:50:46.365817', '2022-04-19 02:50:46.365817', 1, 'nursing-416', 'Well, this is certainly a pleasant surprise.', 'Coral 66', 8452)[0m
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'applied-science-psychology-298' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Applied Science (Psychology) 298', 'Faker hello', '2022-04-19 02:50:46.383423', '2022-04-19 02:50:46.383423', 1, 'applied-science-psychology-298', 'Yes, it\'s tough, but not as tough as doing comedy.', 'HAL/S', 10537)[0m
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'health-science-454' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Health Science 454', 'Faker hello', '2022-04-19 02:50:46.401073', '2022-04-19 02:50:46.401073', 1, 'health-science-454', 'That\'s good. Go on, read some more.', 'Onyx', 9404)[0m
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'medicine-493' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Medicine 493', 'Faker hello', '2022-04-19 02:50:46.418681', '2022-04-19 02:50:46.418681', 1, 'medicine-493', 'That\'s good. Go on, read some more.', 'Stackless Python', 18585)[0m
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'commerce-545' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Commerce 545', 'Faker hello', '2022-04-19 02:50:46.435749', '2022-04-19 02:50:46.435749', 1, 'commerce-545', 'Van Halen!', 'Esterel', 11263)[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'architectural-technology-128' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Architectural Technology 128', 'Faker hello', '2022-04-19 02:50:46.453076', '2022-04-19 02:50:46.453076', 1, 'architectural-technology-128', 'Do you want me to come with you?', 'ATS', 16200)[0m
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'information-systems-371' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Information Systems 371', 'Faker hello', '2022-04-19 02:50:46.470330', '2022-04-19 02:50:46.470330', 1, 'information-systems-371', 'Goodnight, my darlings, I\'ll see you tomorrow.', 'WebQL', 16024)[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'business-141' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Business 141', 'Faker hello', '2022-04-19 02:50:46.487753', '2022-04-19 02:50:46.487753', 1, 'business-141', 'I am confound.', 'ALGOL 58', 3975)[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'psychology-364' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Psychology 364', 'Faker hello', '2022-04-19 02:50:46.505099', '2022-04-19 02:50:46.505099', 1, 'psychology-364', 'It\'s stopped.', 'CL (IBM)', 14638)[0m
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'nursing-185' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Nursing 185', 'Faker hello', '2022-04-19 02:50:46.522444', '2022-04-19 02:50:46.522444', 1, 'nursing-185', 'That was the best ice-cream soda I ever tasted.', 'Easy PL/I', 16203)[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'education-343' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Education 343', 'Faker hello', '2022-04-19 02:50:46.541702', '2022-04-19 02:50:46.541702', 1, 'education-343', 'I regret that I should leave this world without again beholding him.', 'Reason', 18914)[0m
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'creative-arts-187' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Creative Arts 187', 'Faker hello', '2022-04-19 02:50:46.561948', '2022-04-19 02:50:46.561948', 1, 'creative-arts-187', 'I love you.', 'Nice', 9167)[0m
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'design-311' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Design 311', 'Faker hello', '2022-04-19 02:50:46.577718', '2022-04-19 02:50:46.577718', 1, 'design-311', 'That was the best ice-cream soda I ever tasted.', 'COBOL – ISO/IEC 1989', 3365)[0m
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'communications-153' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Communications 153', 'Faker hello', '2022-04-19 02:50:46.593560', '2022-04-19 02:50:46.593560', 1, 'communications-153', 'I want your bunk!', 'Klerer-May System', 13212)[0m
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'forensic-science-316' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Forensic Science 316', 'Faker hello', '2022-04-19 02:50:46.609865', '2022-04-19 02:50:46.609865', 1, 'forensic-science-316', 'Do you want me to come with you?', 'NEWP', 6071)[0m
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'architectural-technology-499' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Architectural Technology 499', 'Faker hello', '2022-04-19 02:50:46.626794', '2022-04-19 02:50:46.626794', 1, 'architectural-technology-499', 'Do you want me to come with you?', 'Uniface', 1530)[0m
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'health-science-111' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Health Science 111', 'Faker hello', '2022-04-19 02:50:46.644909', '2022-04-19 02:50:46.644909', 1, 'health-science-111', 'I love you too, honey. Good luck with your show.', 'FOCAL', 10824)[0m
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'computer-science-211' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Computer Science 211', 'Faker hello', '2022-04-19 02:50:46.667049', '2022-04-19 02:50:46.667049', 1, 'computer-science-211', 'One! Two! Three!', 'Visual FoxPro', 5833)[0m
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'medicine-498' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Medicine 498', 'Faker hello', '2022-04-19 02:50:46.685920', '2022-04-19 02:50:46.685920', 1, 'medicine-498', 'I don\'t know.', 'Easy PL/I', 4602)[0m
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'commerce-229' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Commerce 229', 'Faker hello', '2022-04-19 02:50:46.703517', '2022-04-19 02:50:46.703517', 1, 'commerce-229', 'I don\'t know.', 'C', 15318)[0m
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'teaching-333' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Teaching 333', 'Faker hello', '2022-04-19 02:50:46.720321', '2022-04-19 02:50:46.720321', 1, 'teaching-333', 'Well, this is certainly a pleasant surprise.', 'NewtonScript', 3786)[0m
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'education-117' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Education 117', 'Faker hello', '2022-04-19 02:50:46.738187', '2022-04-19 02:50:46.738187', 1, 'education-117', 'That\'s good. Go on, read some more.', 'LaTeX', 8600)[0m
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'nursing-146' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Nursing 146', 'Faker hello', '2022-04-19 02:50:46.754360', '2022-04-19 02:50:46.754360', 1, 'nursing-146', 'I love you.', 'ECMAScript', 8090)[0m
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `courses` WHERE `courses`.`id` IS NOT NULL AND `courses`.`slug` = 'biomedical-science-260' LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`title`, `description`, `created_at`, `updated_at`, `user_id`, `slug`, `short_description`, `language`, `price`) VALUES ('Biomedical Science 260', 'Faker hello', '2022-04-19 02:50:46.770806', '2022-04-19 02:50:46.770806', 1, 'biomedical-science-260', 'I don\'t know.', 'PROIV', 5180)[0m
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-04-19 09:50:54 +0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/sangcoder/CODE/Ruby/Study-Ruby/app/controllers/application_controller.rb:5)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:17
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT `courses`.`user_id`) FROM `courses`[0m
+  ↳ app/views/home/index.html.haml:25
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  ↳ app/views/home/index.html.haml:32
+  [1m[36mCourse Load (2.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:47
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 478.3ms | Allocations: 370543)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 2[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.3ms | Allocations: 2731)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 3[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.2ms | Allocations: 2573)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 3.5ms | Allocations: 1626)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 2[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.1ms | Allocations: 1629)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 3[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 3.6ms | Allocations: 1628)
+  [1m[36mCourse Load (1.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` ORDER BY `courses`.`created_at` DESC LIMIT 3[0m
+  ↳ app/views/home/index.html.haml:61
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 31[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.5ms | Allocations: 2569)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 30[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.2ms | Allocations: 2567)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 29[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/courses/_course.html.haml:31
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 11.2ms | Allocations: 2573)
+  Rendered home/index.html.haml within layouts/application (Duration: 601.2ms | Allocations: 409522)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 18.9ms | Allocations: 18737)
+  Rendered layouts/_messages.html.haml (Duration: 4.5ms | Allocations: 4042)
+  Rendered layouts/_footer.html.haml (Duration: 4.2ms | Allocations: 4175)
+  Rendered layout layouts/application.html.haml (Duration: 650.2ms | Allocations: 447741)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:50:55.792623' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (34.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 768ms (Views: 597.4ms | ActiveRecord: 106.2ms | Allocations: 470896)
+
+
+Started GET "/courses" for 127.0.0.1 at 2022-04-19 09:51:06 +0700
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (1.7ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.2ms | Allocations: 2814)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 2[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.6ms | Allocations: 2007)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 3[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.0ms | Allocations: 2002)
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 4[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.2ms | Allocations: 1998)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 5[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.5ms | Allocations: 2001)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 6[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.2ms | Allocations: 1998)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 7[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.9ms | Allocations: 1998)
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 8[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.1ms | Allocations: 2002)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 9[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.3ms | Allocations: 2006)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 10[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.6ms | Allocations: 2004)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 11[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.2ms | Allocations: 2002)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 12[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.0ms | Allocations: 1996)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 13[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.5ms | Allocations: 2006)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 14[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.6ms | Allocations: 2004)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 15[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.2ms | Allocations: 1996)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 16[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.5ms | Allocations: 1996)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 17[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.7ms | Allocations: 2002)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 18[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.4ms | Allocations: 2002)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 19[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.4ms | Allocations: 1998)
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 20[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.1ms | Allocations: 2002)
+  Rendered courses/index.html.haml within layouts/application (Duration: 181.3ms | Allocations: 55050)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.5ms | Allocations: 879)
+  Rendered layouts/_messages.html.haml (Duration: 0.5ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.6ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 195.0ms | Allocations: 59615)
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:51:06.273699' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (34.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 257ms (Views: 155.1ms | ActiveRecord: 84.1ms | Allocations: 66306)
+
+
+Started GET "/courses?page=2" for 127.0.0.1 at 2022-04-19 09:51:11 +0700
+Processing by CoursesController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (12.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 20) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (2.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 20[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 21[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 11.0ms | Allocations: 2757)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 22[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.8ms | Allocations: 2006)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 23[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.3ms | Allocations: 2006)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 24[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.6ms | Allocations: 2004)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 25[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.8ms | Allocations: 1998)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 26[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.9ms | Allocations: 1996)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 27[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.8ms | Allocations: 1996)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 28[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.3ms | Allocations: 2002)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 29[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.7ms | Allocations: 2002)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 30[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.1ms | Allocations: 1996)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 31[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.0ms | Allocations: 1998)
+  Rendered courses/index.html.haml within layouts/application (Duration: 125.9ms | Allocations: 29595)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 2.7ms | Allocations: 853)
+  Rendered layouts/_messages.html.haml (Duration: 0.3ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.4ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 137.3ms | Allocations: 34208)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:51:11.306581' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 192ms (Views: 107.6ms | ActiveRecord: 61.4ms | Allocations: 38985)
+
+
+Started GET "/courses?page=1" for 127.0.0.1 at 2022-04-19 09:51:14 +0700
+Processing by CoursesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `courses`[0m
+  ↳ app/controllers/courses_controller.rb:15:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering courses/index.html.haml within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM `courses` LIMIT 20 OFFSET 0) subquery_for_count[0m
+  ↳ app/views/courses/index.html.haml:5
+  [1m[36mCourse Load (2.7ms)[0m  [1m[34mSELECT `courses`.* FROM `courses` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  ↳ app/views/courses/index.html.haml:28
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 1[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mRole Load (3.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 12.7ms | Allocations: 2751)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 2[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.8ms | Allocations: 2004)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 3[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.4ms | Allocations: 2002)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 4[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.3ms | Allocations: 1998)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 5[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.2ms | Allocations: 2001)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 6[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.7ms | Allocations: 1998)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 7[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.8ms | Allocations: 1998)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 8[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 12.0ms | Allocations: 2002)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 9[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.2ms | Allocations: 2006)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 10[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.9ms | Allocations: 2004)
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 11[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 9.7ms | Allocations: 2002)
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 12[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 10.1ms | Allocations: 1996)
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 13[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.4ms | Allocations: 2006)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 14[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.6ms | Allocations: 2004)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 15[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 7.2ms | Allocations: 1996)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 16[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 5.9ms | Allocations: 1996)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 17[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.9ms | Allocations: 2002)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 18[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 8.3ms | Allocations: 2002)
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 19[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.5ms | Allocations: 1998)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `lessons` WHERE `lessons`.`course_id` = 20[0m
+  ↳ app/views/courses/_course.html.haml:13
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/policies/course_policy.rb:9:in `edit?'
+  Rendered courses/_course.html.haml (Duration: 6.6ms | Allocations: 2002)
+  Rendered courses/index.html.haml within layouts/application (Duration: 189.6ms | Allocations: 48321)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.haml (Duration: 1.6ms | Allocations: 853)
+  Rendered layouts/_messages.html.haml (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/_footer.html.haml (Duration: 0.2ms | Allocations: 111)
+  Rendered layout layouts/application.html.haml (Duration: 198.4ms | Allocations: 52932)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-04-19 02:51:14.496919' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+  [1m[36mTRANSACTION (35.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:20:in `user_activity'
+Completed 200 OK in 256ms (Views: 153.7ms | ActiveRecord: 88.2ms | Allocations: 57680)
+
+

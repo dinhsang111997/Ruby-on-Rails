@@ -5,14 +5,16 @@
       = @users.count
 %p
 
-.card-columns
-  - @users.each do |user|
-    = render 'users/user', user: user 
 -# ransack
+/.card-columns
+/  - @users.each do |user|
+/    = render 'users/user', user: user
 .form-inline
   = search_form_for @q do |f|
     = f.search_field :email_cont, placeholder: 'email'
     = f.submit
+    %th Confirmed?
+    %th Roles
   .ml-2
   = link_to 'refresh', users_path
 
@@ -28,3 +30,10 @@
         %td= user.id
         %td= user.email
         %td= user.created_at
+        %td= user.confirmed?
+        %td
+          - user.roles.each do |role|
+            .badge.bg-info
+              = role.name
+          - if policy(user).edit?
+            = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
