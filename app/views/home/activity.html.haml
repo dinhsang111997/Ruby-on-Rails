@@ -1,3 +1,7 @@
+- content_for :title do
+  Corsego 
+  \| 
+  Activity
 %h3
   .text-center
     Activity
@@ -13,7 +17,6 @@
       = activity.id
       = activity.trackable_type
       = activity.trackable_id
-      = link_to activity.trackable, activity.trackable
       = activity.key
       = activity.parameters
       = activity.owner

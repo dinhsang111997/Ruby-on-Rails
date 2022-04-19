@@ -1,4 +1,13 @@
-%p#notice= notice
+- content_for :title do
+  Corsego 
+  \/
+  Course
+  = @course.title
+  \/
+  Lesson
+  = @lesson.title
+
+
 = link_to 'Courses', courses_path
 \/
 = link_to @lesson.course.title, course_path(@lesson.course)
